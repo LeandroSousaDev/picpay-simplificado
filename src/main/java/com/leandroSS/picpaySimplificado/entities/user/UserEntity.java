@@ -1,8 +1,10 @@
-package com.leandroSS.picpaySimplificado.domain.user;
+package com.leandroSS.picpaySimplificado.entities.user;
 
+import com.leandroSS.picpaySimplificado.dto.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
 @Table(name = "users")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +20,7 @@ public class UserEntity {
 
     private String firstName;
 
-    private String LastName;
+    private String lastName;
 
     @Column(unique = true)
     private String document;
@@ -31,4 +34,14 @@ public class UserEntity {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public UserEntity(UserDTO data) {
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.email = data.email();
+        this.document = data.document();
+        this.balace = data.balance();
+        this.password = data.password();
+        this.userType = data.userType();
+    }
 }
