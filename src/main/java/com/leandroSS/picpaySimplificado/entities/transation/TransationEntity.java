@@ -1,9 +1,10 @@
-package com.leandroSS.picpaySimplificado.domain.transation;
+package com.leandroSS.picpaySimplificado.entities.transation;
 
-import com.leandroSS.picpaySimplificado.domain.user.UserEntity;
+import com.leandroSS.picpaySimplificado.entities.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Table(name = "transations")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class TransationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
